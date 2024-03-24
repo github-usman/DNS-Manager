@@ -1,12 +1,17 @@
 import express from "express";
-const router = express.Router();
+import mongodbConnection from "./database/db.js";
+import userRouter from "./rotues/user.route.js";
+
+const app = express.Router();
+app.use(userRouter);
+mongodbConnection();
 
 
-router.get('/', (req, res) => {
+app.get('/', (req, res) => {
     res.send('Hello World!');
 })
 
 
 
 
-export default router;
+export default app;
