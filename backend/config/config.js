@@ -16,7 +16,7 @@ const mongoDB = {
 }
 
 // server port and mode
-const Server = {
+const server = {
     serverPort: process.env.SERVER_PORT,
     serverMode:process.env.SERVER_MODE
 }
@@ -25,4 +25,4 @@ const Server = {
 // Exporting the variables
 export const { accessKeyId, secretAccessKey, HostedZoneId,defaultTTL } = awsKey;
 export const { mongoURI, dbName } = mongoDB;
-export const { serverMode, serverPort } = Server;
+export const { serverMode, serverPort } = server;
