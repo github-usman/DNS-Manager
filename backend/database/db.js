@@ -1,13 +1,11 @@
 import mongoose from "mongoose";
+import { dbName, mongoURI } from "../config/config.js";
 
 const mongodbConnection = ()=>{
-
-    mongoose.connect('mongodb://127.0.0.1:27017',{
-    dbName:'dnsmanager',
-    })
-    .then(()=>console.log("DB is Connected"))
+    mongoose
+    .connect(mongoURI,{ dbName})
+    .then(()=>console.log("DB is Connected Successfully"))
     .catch((e)=>console.log(e));
 }
-
 
 export default mongodbConnection;
