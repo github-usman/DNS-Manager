@@ -1,17 +1,10 @@
 import express from "express"
-import { User } from "../models/user.model.js";
+import { getAllUsers, registerUser } from "../controllers/user.controller.js";
+
+
 const router = express.Router();
 
-router.get('/users/all', async (req, res) => {
-    const users = await User.find({});
-
-    const keyword = req.query.keyword;
-    console.log(keyword)
-
-    res.json({
-        success: true,
-        users
-    })
-})
+router.get('/all',getAllUsers)
+router.post('/register',registerUser)
 
 export default router;
