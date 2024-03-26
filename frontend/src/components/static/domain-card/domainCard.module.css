@@ -1,0 +1,17 @@
+.container{
+  border: 1px solid black;
+  min-height: 200px;
+  max-width: 270px;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+  background: linear-gradient(160deg, rgb(170, 196, 243) 0%,#ffffff 50%, rgb(250, 236, 160) 100%);
+}
+
+.domainName{
+  font-size: 16px;
+  font-weight: 400;
+}

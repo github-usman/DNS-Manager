@@ -6,3 +6,27 @@
   box-sizing: border-box;
   font-family: 'Roboto',Arial, Helvetica, sans-serif;
 }
+
+
+
+/* scrollbar */
+
+
+
+
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #1B56C9;
+  border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #0c327e;
+}

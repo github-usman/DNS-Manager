@@ -6,23 +6,21 @@
     left: 0;
     background: rgb(21,91,220);
     background: linear-gradient(180deg, rgb(41, 113, 247) 0%, rgba(6,57,146,1) 100%);
-    padding: 20px 0;
+    padding-bottom: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* display: none; */
+
   }
   
+  .noSideNavbar{
+    display: none;
+  }
   .sideNavbar ul {
     list-style-type: none;
     padding: 0;
   }
   
-  .logoContainer{
-    padding: 10px ;
-    width: 90%;
-    margin: auto;
-  }
   .sideNavbar li {
     padding: 10px ;
     width: 90%;
@@ -49,33 +47,4 @@
 
   .icons{
     font-size: 20px;
-  }
-
-
-  .logoContainer{
-    display: flex;
-    align-items: center;
-    gap :1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .logoContainer a{
-    text-decoration: none;
-    color: black;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  .Hamburger{
-    font-size: 30px;
-    cursor: pointer;
-    padding: 0.5rem 0.5rem 0.001rem 0.5rem;
-
-  }
-.Hamburger:hover{
-    background: rgb(104, 150, 236);
-    box-shadow: 1px 1px 5px 1px #5ebeeb;
-    border-radius: 50%;
-    
-    cursor: pointer;
   }
