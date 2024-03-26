@@ -1,7 +1,8 @@
 
 // ---------------GET all dns record
-export const getAllDNSRecords = async (req, res,client,ListResourceRecordSetsCommand,HostedZoneId) => {
+export const getAllDNSRecords = async (req, res,client,ListResourceRecordSetsCommand) => {
     try {
+        const {HostedZoneId} = req.body; 
         const params = {
             HostedZoneId
         };

@@ -11,10 +11,8 @@ import { deleteDNSRecord } from "./dns/deleteDNSRecords.controller.js";
 // ---------------GET all dns record
 export const getAllDNSRecordsHandler = async (req, res) => {
     try {
-      const records = await getAllDNSRecords(req,res,client,ListResourceRecordSetsCommand,HostedZoneId);
-      res.status(200).json(records);
+      await getAllDNSRecords(req,res,client,ListResourceRecordSetsCommand,HostedZoneId);
     } catch (error) {
-      console.error('Error retrieving DNS records:', error);
       res.status(500).json({ error: 'Error retrieving DNS records' });
     }
   };
@@ -24,11 +22,9 @@ export const getAllDNSRecordsHandler = async (req, res) => {
 
 export const createMultiDNSRecordsHandler = async (req, res) => {
     try {
-      const result = await createMultiDNSRecords(req,res,client,ChangeResourceRecordSetsCommand,HostedZoneId,defaultTTL);
-      res.status(201).json(result);
+      await createMultiDNSRecords(req,res,client,ChangeResourceRecordSetsCommand,HostedZoneId,defaultTTL);
     } catch (error) {
-      console.error('Error creating DNS records:', error);
-      res.status(500).json({ error: 'Error creating DNS records' });
+      res.status(500).json({ error: 'Server Error creating DNS records' });
     }
   };
 
@@ -37,11 +33,9 @@ export const createMultiDNSRecordsHandler = async (req, res) => {
 // -------------CREATE single dns record only
 export const createOneDNSRecordsHandler = async (req, res) => {
     try {
-      const result = await createOneDNSRecords(req,res,client,ChangeResourceRecordSetsCommand,HostedZoneId,defaultTTL);
-      res.status(201).json(result);
+      createOneDNSRecords(req,res,client,ChangeResourceRecordSetsCommand,HostedZoneId,defaultTTL);
     } catch (error) {
-      console.error('Error creating DNS records:', error);
-      res.status(500).json({ error: 'Error creating DNS records' });
+      res.status(500).json({ error: 'Server Error creating DNS records' });
     }
   };
 
@@ -54,11 +48,9 @@ export const createOneDNSRecordsHandler = async (req, res) => {
 
 export const updateDNSRecordsHandler = async (req, res) => {
     try {
-      const result = await updateDNSRecords(req,res,client,ChangeResourceRecordSetsCommand,HostedZoneId,defaultTTL,listExistingRecords);
-      res.status(201).json(result);
+      updateDNSRecords(req,res,client,ChangeResourceRecordSetsCommand,HostedZoneId,defaultTTL,listExistingRecords);
     } catch (error) {
-      console.error('Error Updating DNS records:', error);
-      res.status(500).json({ error: 'Error Updating DNS records' });
+      res.status(500).json({ error: 'Server Error Updating DNS records' });
     }
   };
 
@@ -68,10 +60,8 @@ export const updateDNSRecordsHandler = async (req, res) => {
 
 export const deleteDNSRecordHandler = async (req, res) => {
     try {
-      const result = await deleteDNSRecord(req,res,client,ChangeResourceRecordSetsCommand,HostedZoneId,listExistingRecords);
-      res.status(201).json(result);
+      await deleteDNSRecord(req,res,client,ChangeResourceRecordSetsCommand,HostedZoneId,listExistingRecords);
     } catch (error) {
-      console.error('Error deleting DNS records:', error);
-      res.status(500).json({ error: 'Error deleting DNS records' });
+      res.status(500).json({ error: 'Server Error deleting DNS records' });
     }
   };
