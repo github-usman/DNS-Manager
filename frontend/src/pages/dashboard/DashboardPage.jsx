@@ -6,6 +6,7 @@ import PieChart from "../../components/static/chart/PieChart";
 import DomainCard from "../../components/static/domain-card/DomainCard.jsx";
 import SideNavbar from "../../components/static/side-nav-bar/SideNavbar";
 import styles from "./dashboardPage.module.css";
+import DomainCreationForm from "../create-domain/DomainCreationForm.jsx";
 // import LineChart from "../../components/static/chart/LineChart";
 
 
@@ -14,6 +15,7 @@ const URL = import.meta.env.VITE_API_URI || "";
 
 const DashboardPage = () => {
   const [Close, setClose] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
   const [randomIndexes, setRandomIndexes] = useState([]);
 
@@ -30,6 +32,7 @@ const DashboardPage = () => {
 
   useEffect(() => {
     fetchData();
+    setIsLoading(true);
   }, []);
 
   const hamburgerToggle = () => {
@@ -52,22 +55,27 @@ const DashboardPage = () => {
   
       <div className={styles.bodySection}>
         {/* chart section */}
-      <div>
-        {/* line + pie chart */}
-            <PieChart data={data}/>  
-      </div>
-            {/* domain list of card section */}
-            <h2 style={{paddingTop:'3rem',paddingBottom:'1rem'}}>List of Domains</h2>
-        <div className={styles.domainCard}>
-          {data.length > 0 &&
-            data.map((element, index) => (
-              <DomainCard
-                key={element.id}
-                element={element}
-                randomIndex={randomIndexes[index]} 
-              />
-            ))}
+       <DomainCreationForm/>
+
+       <div>
+          {/* line + pie chart */}
+          {isLoading ? <PieChart data={data}/>  :<h2>Loading...</h2> }
         </div>
+              {/* domain list of card section */}
+              <h2 style={{paddingTop:'3rem',paddingBottom:'1rem'}}>List of Domains</h2>
+              {data.length>0 ?
+          <div className={styles.domainCard}>
+            {data.length > 0 &&
+              data.map((element, index) => (
+                <DomainCard
+                  key={element.id}
+                  element={element}
+                  randomIndex={randomIndexes[index]} 
+                />
+              ))}
+
+          </div>
+          :<h2>Loading...</h2> }
       </div>
     </div>
   );

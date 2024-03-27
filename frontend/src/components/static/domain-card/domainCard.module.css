@@ -9,9 +9,13 @@
   flex-direction: column;
   cursor: pointer;
   background: linear-gradient(160deg, rgb(170, 196, 243) 0%,#ffffff 50%, rgb(250, 236, 160) 100%);
+  text-decoration: none;
+  color: black;
+  gap:0.5rem
 }
 
 .domainName{
   font-size: 16px;
   font-weight: 400;
+
 }

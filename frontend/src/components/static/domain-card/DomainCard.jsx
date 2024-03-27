@@ -12,6 +12,9 @@ import { FaLocationCrosshairs } from "react-icons/fa6"
 import { GiMushroomCloud } from "react-icons/gi";
 import { Link } from 'react-router-dom';
 import { DnsContext } from '../../../context-api/DnsContext';
+import { MdDelete } from "react-icons/md";
+
+import { FaEdit } from "react-icons/fa";
 
 
 const DomainCard = ({element,randomIndex}) => {
@@ -44,7 +47,7 @@ const DomainCard = ({element,randomIndex}) => {
         GiMushroomCloud
     ];
     const FinalIcon = listOfIcons[randomIndex] || GiSlicedMushroom;
-    const color = listOfColor[randomIndex] || '#E2F4C5'
+    const color = listOfColor[randomIndex] || '#4cbbd1'
     const {setHostedZoneId} = useContext(DnsContext);
 
     const handleClick = (e) => {
@@ -56,7 +59,8 @@ const DomainCard = ({element,randomIndex}) => {
   return (
       <Link to={`/dns-records/${element.Name}`} onClick={handleClick} className={styles.container}>
           <p className={styles.domainName}>{element.Name}</p>
-          <FinalIcon size={100} style={{color:color}}/>
+          <FinalIcon size={80} style={{color:color}}/>
+          <div style={{display:'flex',gap:'1rem'}}><MdDelete size={25} color='red'/> <FaEdit size={25} color='black'/></div>
           <p>{element.ResourceRecordSetCount} Records</p>
       </Link>
   

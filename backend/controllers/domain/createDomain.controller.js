@@ -6,12 +6,13 @@ export const createHostedZone = async (req, res,isDomainExist,client,CreateHoste
     try {
         const domainList = req.body;
         const existingHostedZones = await isDomainExist();
-        console.log(existingHostedZones,'existing zones')
+        console.log(existingHostedZones,'existing zones ')
         const responses = [];//for final log
         for (const domain of domainList) {
             const { Name, PrivateZone, Comment } = domain; 
             // Check if the domain already exists
-            if (existingHostedZones.find(zone => zone.Name == Name+'.')) {
+            // console.log(existingHostedZones,' ==== ',Name)
+            if (existingHostedZones.find(zone => (zone.Name).toLowerCase() == (Name+'.').toLowerCase() || (zone.Name).toLowerCase() == Name.toLowerCase())) {
                 console.log(`Hosted zone '${Name}' already exists. Skipping creation.`);
                 continue; 
             }
@@ -26,7 +27,7 @@ export const createHostedZone = async (req, res,isDomainExist,client,CreateHoste
 
             const command = new CreateHostedZoneCommand(params);
             const { HostedZone } = await client.send(command);
-            console.log(`Hosted zone created successfully: ${HostedZone.Name}`);
+            // console.log(`Hosted zone created successfully: ${HostedZone.Name}`);
             responses.push(HostedZone.Name);
         }
 

@@ -4,10 +4,11 @@ const DnsContext = createContext();
 
 const DnsProvider = ({ children }) => {
     const [hostedZoneId, setHostedZoneId] = useState(null);
-    const [domainName, setDomainName] = useState('');
+    const [createPageBtn, setCreatePageBtn] = useState(false);
+
 
     return (
-        <DnsContext.Provider value={{ hostedZoneId, setHostedZoneId,domainName,setDomainName}}>
+        <DnsContext.Provider value={{ hostedZoneId, setHostedZoneId,createPageBtn,setCreatePageBtn}}>
             {children}
         </DnsContext.Provider>
     );

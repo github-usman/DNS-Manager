@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    background-color: pink;
+    flex-direction: column;
+    padding: 1rem 1rem 10rem 1rem;
+    align-items: center;
+    margin: 1rem;
+
+}
+.btn{
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+
+}
+.input{
+    padding: .8rem 1rem;
+    border: none;
+    border-radius: px;
+    margin-top: .5rem;
+    width: 25rem;
+}

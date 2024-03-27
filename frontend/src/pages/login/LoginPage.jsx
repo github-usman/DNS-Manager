@@ -1,37 +1,54 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+// Login.js
 
-const LoginPage = () => {
-  return (
-          <div className=" w-full  pt-[100px] ">
-            <form >
-              <div className="max-w-[1240px] text-center font-bold mx-auto flex flex-col justify-center items-center">
-                <input
-                  className="px-2 py-4  my-4 w-[95%] max-w-[700px]  rounded"
-                  type="text"
-                  placeholder="Enter Your Name"
-                  
-                />
-                <input
-                  className="px-2 py-4  my-4  w-[95%] max-w-[700px] rounded"
-                  type="tel"
-                  placeholder="Mobile Number"
-                  
-                />
-                <div className="pt-[100px]">
-                  <Link to={'/dashboard'}
-                    type="submit"
-                    className="bg-black px-10 p-3 text-[#fff] rounded hover:text-[#000] hover:bg-[#fff]"
-                  >
-                    Next
-                  </Link>
+import React, { useState } from 'react';
+import styles from "./loginPage.module.css"
+import { Link } from 'react-router-dom';
 
-                  <h1> I am WORKING ON IT PLEASE PROCEED NEXT USING 'Next' </h1>
+function Login() {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        // Handle login logic here
+    };
+
+    return (
+      <>
+      <h2 style={{backgroundColor:'yellow',padding:'3rem',textAlign:'center'}}>Please Skip Login page by click on Skip Button I'm working on this page</h2>
+        <div className={styles['login-container']}>
+            <form className={styles["login-form"]} onSubmit={handleSubmit}>
+                <h2>Login</h2>
+                <div className={styles['form-group']}>
+                    <label className={styles['lablel']} htmlFor="username">Username</label >
+                    <input
+                        className={styles['input']}
+                        type="text"
+                        id="username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        placeholder="Enter your username"
+                        required
+                    />
                 </div>
-              </div>
+                <div className={styles['form-group']}>
+                    <label className={styles['lablel']} htmlFor="password">Password</label>
+                    <input
+                        className={styles['input']}
+                        type="password"
+                        id="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="Enter your password"
+                        required
+                    />
+                </div>
+                <button className={styles['btn']} type="submit">Login</button>
+                <Link to='/dashboard'><button className={styles['btnSkip']} >Skip</button></Link>
             </form>
-          </div>
-  )
+        </div>
+        </>
+    );
 }
 
-export default LoginPage
+export default Login;

@@ -21,25 +21,25 @@
     padding: 0;
   }
   
-  .sideNavbar li {
+  .sideNavbar .li {
     padding: 10px ;
     width: 90%;
     margin: auto;
     cursor: pointer;
   }
- .sideNavbar li>*{
+ .sideNavbar .li>*{
     color: #fff;
     text-decoration: none;
  }
   
-  .sideNavbar li:hover {
+  .sideNavbar .li:hover {
     background: rgb(67, 125, 233);
     border-radius: 3px;
     font-weight: bold;
   }
   
 
-  .sideNavbar li a{
+  .sideNavbar .li a{
     display: flex;
     align-items: center;
     gap: 1rem;
