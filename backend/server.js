@@ -1,13 +1,14 @@
 import express from "express";
 import app from "./app.js";
-import { serverMode, serverPort } from "./config/config.js";
+import { serverMode } from "./config/config.js";
 
 
 const server = express();
 server.use(app);
 
+const PORT = process.env.PORT || 8080
 
-server.listen(serverPort, () => {
-    process.stdout.write(`server is running on ${serverPort} in ${serverMode} Mode \n`)
+server.listen(PORT, () => {
+    process.stdout.write(`server is running on ${PORT} in ${serverMode} Mode \n`)
 })
 
