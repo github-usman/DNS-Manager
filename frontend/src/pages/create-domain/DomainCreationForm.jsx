@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import styles from "./domainCreationForm.module.css";
 import { DnsContext } from '../../context-api/DnsContext';
-
+const URL = import.meta.env.VITE_API_URI || "";
 function DomainCreationForm() {
     const [domainName, setDomainName] = useState('');
     const {createPageBtn} = useContext(DnsContext);
@@ -10,7 +10,7 @@ function DomainCreationForm() {
         event.preventDefault();
 
         try {
-            const response = await fetch('http://localhost:8080/api/v1/domain/create', {
+            const response = await fetch(`${URL}/domain/create`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
