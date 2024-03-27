@@ -1,88 +1,87 @@
-.container{
-    background-color: #2699FA;
-    height: 100vh;
-    padding-top: 100px;
+.container {
+  background-color: #2699fa;
+  height: 100vh;
+  padding-top: 100px;
 }
-.subContainer{
-    max-width: 1240px;
-    text-align: center;
-    font-weight: bold;
-    margin-right:auto;
-    margin-left: auto;
-}
-
-.etiquette{
-    font-size: x-large;
-}
-.welcome{
-    color: #fff;
-    font-size: 40px;
-}
-.reactTyped{
-    font-size: 30px;
-    color: #fff;
-    min-height: 100px;
-
+.subContainer {
+  max-width: 1240px;
+  text-align: center;
+  font-weight: bold;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-.btnGetStarted{
-    background-color: black;
-    padding: 0.8rem 3rem;
-    color: #fff;
-    border-radius: 5px;
-    border: none;
-    box-shadow: 1px 1px 10px 1px #9ebefa;
-    cursor: pointer;
-    text-decoration: none;
+.etiquette {
+  font-size: x-large;
 }
-.btnGetStarted:hover{
-    color: #000;
-    background-color: #fff;
+.welcome {
+  color: #fff;
+  font-size: 40px;
 }
-.reactTypedInner{
-    width: 100%;
-    margin: 1rem 0;
-    padding: 1rem 0;
-    border-radius: 8px;
-    background-color: #2699FA;
-    border: none;
-    color: #FFFFFF;
-}
-.reactTypedInner::placeholder{
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 30px;
-    font-weight: 550;
-}
-.checkIcon{
-    font-size: 40px;
-    color: #fdfdfd;
-    background-color: #69D42C;
-    border-radius: 50%;
-}
-.para{
-    display: flex;
-    flex-direction: column;
-    margin-top: 25px;
+.reactTyped {
+  font-size: 30px;
+  color: #fff;
+  min-height: 100px;
 }
 
-.firstContainer>p{
-   display: flex;
-   align-items: center;
-   justify-content: start;
-   gap: 0.5rem;
-   margin-top: 0.3rem;
-   color: #FFF7FC;
+.btnGetStarted {
+  background-color: black;
+  padding: 0.8rem 3rem;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 1px 1px 10px 1px #9ebefa;
+  cursor: pointer;
+  text-decoration: none;
 }
-.secondContainer>p{
-   display: flex;
-   justify-content: end;
-   align-items: center;
-   gap: 0.5rem;
-   margin-top: 0.3rem;
-   color: #FFF7FC;
+.btnGetStarted:hover {
+  color: #000;
+  background-color: #fff;
+}
+.reactTypedInner {
+  width: 100%;
+  margin: 1rem 0;
+  padding: 1rem 0;
+  border-radius: 8px;
+  background-color: #2699fa;
+  border: none;
+  color: #ffffff;
+}
+.reactTypedInner::placeholder {
+  color: #ffffff;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 550;
+}
+.checkIcon {
+  font-size: 40px;
+  color: #fdfdfd;
+  background-color: #69d42c;
+  border-radius: 50%;
+}
+.para {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
 }
 
-.headings{
-    color: #0C359E
+.firstContainer > p {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 0.5rem;
+  margin-top: 0.3rem;
+  color: #fff7fc;
+}
+.secondContainer > p {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.3rem;
+  color: #fff7fc;
+}
+
+.headings {
+  color: #0c359e;
 }

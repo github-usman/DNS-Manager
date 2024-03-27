@@ -1,10 +1,10 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import LoginPage from "./pages/login/LoginPage.jsx";
-import WelcomePage from "./pages/welcome/WelcomePage.jsx";
-import DashboardPage from "./pages/dashboard/DashboardPage.jsx";
-import { DnsProvider } from "./context-api/DnsContext.jsx";
-import DNSRecordPage from "./pages/dns-record/DNSRecordsPage.jsx";
+import LoginPage from './pages/login/LoginPage.jsx';
+import WelcomePage from './pages/welcome/WelcomePage.jsx';
+import DashboardPage from './pages/dashboard/DashboardPage.jsx';
+import { DnsProvider } from './context-api/DnsContext.jsx';
+import DNSRecordPage from './pages/dns-record/DNSRecordsPage.jsx';
 
 function App() {
   return (

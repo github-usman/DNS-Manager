@@ -1,20 +1,20 @@
-.container{
+.container {
   display: flex;
 }
 
-.cell{
+.cell {
   flex: 0 0 auto;
   padding: 8px;
   border: 1px solid #cad2d7;
-  text-align: center; 
+  text-align: center;
   background-color: rgb(107, 170, 178);
   color: #312828;
 }
-.cellRight{
+.cellRight {
   flex: 0 0 auto;
   padding: 8px;
   border: 1px solid #cad2d7;
-  text-align: center; 
+  text-align: center;
   background-color: rgb(107, 170, 178);
   color: #312828;
   width: calc(100% - 550px);
