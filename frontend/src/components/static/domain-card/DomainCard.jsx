@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import styles from './domainCard.module.css';
 import { toast } from 'react-hot-toast';
 
@@ -15,6 +15,7 @@ import { Link } from 'react-router-dom';
 import { DnsContext } from '../../../context-api/DnsContext';
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
+import { MdCancel } from "react-icons/md";
 const URL = import.meta.env.VITE_API_URI || "";
 
 
@@ -55,6 +56,7 @@ const DomainCard = ({ element, randomIndex }) => {
         setHostedZoneId(element.Id);
     };
 
+    const [isDelete, setIsDelete] = useState(false)
 
     const handleDelete = async () => {
 
@@ -69,6 +71,7 @@ const DomainCard = ({ element, randomIndex }) => {
         
             if (response.ok) {
                 setNeedReload(true)
+                setIsDelete(false)
                 toast.success(`${element.Name} deleted successfully`);
                 // Handle success scenario, e.g., show a success message
             } else {
@@ -80,6 +83,10 @@ const DomainCard = ({ element, randomIndex }) => {
             // Handle error scenario, e.g., show an error message
         }
     }
+
+     const deleteVerificatio = ()=>{
+        setIsDelete(()=>!isDelete)
+     }
         return (
             <div className={styles.container}>
                 <Link to={`/dns-records/${element.Name}`} onClick={handleClick} className={styles.links}>
@@ -87,7 +94,11 @@ const DomainCard = ({ element, randomIndex }) => {
                     <FinalIcon size={80} style={{ color: color }} />
                     <p>{element.ResourceRecordSetCount} Records</p>
                 </Link>
-                <div className={styles.btn}><MdDelete size={25} style={{ cursor: 'pointer' }} color='red' onClick={handleDelete} /> <FaEdit  style={{cursor:'not-allowed'}} size={25} color='black' /></div>
+                {
+                    isDelete?
+                    <div className={styles.btn} style={{display:'flex',alignItems:'center'}} ><p style={{color:'red'}}> Are You Sure? </p><MdCancel size={25} style={{ cursor: 'pointer' }} color='green' onClick={deleteVerificatio} /><MdDelete size={25} style={{ cursor: 'pointer' }} color='red' onClick={handleDelete} /> </div>
+                   : <div className={styles.btn}><MdDelete size={25} style={{ cursor: 'pointer' }} color='red' onClick={deleteVerificatio} /> <FaEdit  style={{cursor:'not-allowed'}} size={25} color='black' /></div>
+                }
             </div>
 
         )

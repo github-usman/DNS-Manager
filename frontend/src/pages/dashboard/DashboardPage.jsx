@@ -8,6 +8,8 @@ import SideNavbar from "../../components/static/side-nav-bar/SideNavbar";
 import styles from "./dashboardPage.module.css";
 import DomainCreationForm from "../create-domain/DomainCreationForm.jsx";
 import { DnsContext } from "../../context-api/DnsContext.jsx";
+import { MdOutlineCreateNewFolder } from "react-icons/md";
+import { Link } from "react-router-dom";
 // import LineChart from "../../components/static/chart/LineChart";
 
 
@@ -18,7 +20,7 @@ const DashboardPage = () => {
   const [Close, setClose] = useState(true);
   const [data, setData] = useState([]);
   const [randomIndexes, setRandomIndexes] = useState([]);
-  const { needReload,setNeedReload } = useContext(DnsContext);
+  const { needReload,setNeedReload,createPageBtn, setCreatePageBtn } = useContext(DnsContext);
 
   const fetchData = async () => {
     try {
@@ -41,6 +43,17 @@ const DashboardPage = () => {
     setClose(newVal);
   };
 
+  // toggle new Domain page
+
+      
+
+      const handlePageCreate = ()=>{
+        const revertOfCreate = !createPageBtn
+        setCreatePageBtn(revertOfCreate);
+        
+      }
+
+      
   return (
     <div className={styles.container}>
       <div className={styles.navbar}>
@@ -63,7 +76,12 @@ const DashboardPage = () => {
            <PieChart data={data}/> 
         </div>
               {/* domain list of card section */}
-              <h2 style={{paddingTop:'3rem',paddingBottom:'1rem'}}>List of Domains</h2>
+              <div style={{paddingTop:'3rem',padding:'1rem 2rem',display:'flex',justifyContent:'space-between'}}>
+                <h2 >List of Domains</h2>
+                <div className={styles['li']} onClick={handlePageCreate}>
+                  <button className={styles.icons} ><MdOutlineCreateNewFolder />Create New Hosted Zone</button>
+                  </div>
+              </div>
               {data.length>0 ?
           <div className={styles.domainCard}>
             {data.length > 0 &&

@@ -23,8 +23,8 @@ const SideNavbar = ({ hamburgerToggle, Close }) => {
 
         <div ><LogoHamBerger hamburgerToggle={hamburgerToggle} /></div>
         <div className={styles['li']}><Link to='/dashboard'><FiHome className={styles.icons} />Home</Link></div>
-        <div className={styles['li']}><Link ><MdFeedback className={styles.icons} />Feedback</Link></div>
         <div className={styles['li']} onClick={handlePageCreate}><Link ><MdOutlineCreateNewFolder  className={styles.icons} />Create Hosted Zone</Link></div>
+        <div className={styles['li']}><Link ><MdFeedback className={styles.icons} />Feedback</Link></div>
         <div className={styles['li']}><Link> <PiFolderSimpleUser className={styles.icons} />About</Link></div>
       </ul>
       <ul>

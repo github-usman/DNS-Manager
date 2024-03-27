@@ -1,14 +1,18 @@
 import React, { useContext, useState } from 'react';
 import styles from "./domainCreationForm.module.css";
 import { DnsContext } from '../../context-api/DnsContext';
+import toast from 'react-hot-toast';
 const URL = import.meta.env.VITE_API_URI || "";
+
+
 function DomainCreationForm() {
+    const {setNeedReload } = useContext(DnsContext);
     const [domainName, setDomainName] = useState('');
     const {createPageBtn} = useContext(DnsContext);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
+        
         try {
             const response = await fetch(`${URL}/domain/create`, {
                 method: 'POST',
@@ -17,24 +21,25 @@ function DomainCreationForm() {
                 },
                 body: JSON.stringify([{ Name: domainName }])
             });
-
+           console.log('resoponse after creat', response)
             if (response.ok) {
-                alert('created');
+                setNeedReload(true)
+                toast.success(`${domainName} created successfully`);
                 // Handle success scenario, e.g., show a success message
             } else {
-                alert('Failed to create domain');
-                // Handle failure scenario, e.g., show an error message
+                toast.error('Failed to creation domain');
             }
         } catch (error) {
-            alert('Error occurred:', error);
-            // Handle error scenario, e.g., show an error message
+            toast.error('Error occurred: ' + error);
         }
-    };
+        setDomainName('')
+    }
+
 
     return (
         <div className={styles.container} style={{display:`${createPageBtn === true ?'flex':'none'}`}}>
-            <h1 style={{alignSelf:'start'}}>Domain Creation Form</h1>
-            <form onSubmit={handleSubmit}>
+            <h2 style={{alignSelf:'start'}}>Domain Creation or Create New Hosted Zone</h2>
+            <form onSubmit={handleSubmit} className={styles.form} >
                 <label htmlFor="domainName">Domain Name:</label><br />
                 <input
                     className={styles['input']}
