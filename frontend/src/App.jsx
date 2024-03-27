@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
+import { Toaster } from 'react-hot-toast';
 import LoginPage from "./pages/login/LoginPage.jsx";
 import WelcomePage from "./pages/welcome/WelcomePage.jsx";
 import DashboardPage from "./pages/dashboard/DashboardPage.jsx";
@@ -17,6 +17,7 @@ function App() {
           <Route path="/dashboard" element={<DashboardPage />} />
         </Routes>
       </BrowserRouter>
+      <Toaster position="top-right" />
     </DnsProvider>
   );
 }

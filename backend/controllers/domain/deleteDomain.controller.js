@@ -13,7 +13,9 @@ export const deleteHostedZone = async (req, res,isDomainExist,client,DeleteHoste
 
         for (const domain of domainList) {
             const { Name } = domain;
-            const existingZone = existingHostedZones.find(zone => zone.Name === Name+'.');
+            console.log('Name === from fron or backend', Name)
+            const existingZone = existingHostedZones.find(zone => zone.Name.toLowerCase() == Name+'.'.toLowerCase() || zone.Name.toLowerCase() == Name.toLowerCase());
+
             if (!existingZone) {
                 console.log(`Hosted zone '${Name}' does not exist. Skipping deletion.`);
                 continue; 

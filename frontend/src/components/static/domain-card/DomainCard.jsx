@@ -1,5 +1,6 @@
-import React, { useContext} from 'react'
-import styles from './domainCard.module.css'; 
+import React, { useContext } from 'react'
+import styles from './domainCard.module.css';
+import { toast } from 'react-hot-toast';
 
 import { GiSlicedMushroom } from "react-icons/gi";
 import { GiMushroom } from "react-icons/gi";
@@ -13,14 +14,14 @@ import { GiMushroomCloud } from "react-icons/gi";
 import { Link } from 'react-router-dom';
 import { DnsContext } from '../../../context-api/DnsContext';
 import { MdDelete } from "react-icons/md";
-
 import { FaEdit } from "react-icons/fa";
+const URL = import.meta.env.VITE_API_URI || "";
 
 
-const DomainCard = ({element,randomIndex}) => {
+const DomainCard = ({ element, randomIndex }) => {
 
     // random generation
-    console.log(randomIndex,'in card')
+    console.log(randomIndex, 'in card')
     const listOfColor = [
         '#496989',
         '#58A399',
@@ -34,7 +35,7 @@ const DomainCard = ({element,randomIndex}) => {
         '#9BB0C1',
         '#FCDC2A',
     ]
-    
+
     const listOfIcons = [
         GiSlicedMushroom,
         GiMushroom,
@@ -48,23 +49,48 @@ const DomainCard = ({element,randomIndex}) => {
     ];
     const FinalIcon = listOfIcons[randomIndex] || GiSlicedMushroom;
     const color = listOfColor[randomIndex] || '#4cbbd1'
-    const {setHostedZoneId} = useContext(DnsContext);
+    const { setHostedZoneId,setNeedReload } = useContext(DnsContext);
 
     const handleClick = (e) => {
-       setHostedZoneId(element.Id);
+        setHostedZoneId(element.Id);
     };
 
-  
 
-  return (
-      <Link to={`/dns-records/${element.Name}`} onClick={handleClick} className={styles.container}>
-          <p className={styles.domainName}>{element.Name}</p>
-          <FinalIcon size={80} style={{color:color}}/>
-          <div style={{display:'flex',gap:'1rem'}}><MdDelete size={25} color='red'/> <FaEdit size={25} color='black'/></div>
-          <p>{element.ResourceRecordSetCount} Records</p>
-      </Link>
-  
-  )
-}
+    const handleDelete = async () => {
 
-export default DomainCard;
+        try {
+            const response = await fetch(`${URL}/domain/delete`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify([{ Name: element.Name }])
+            });
+        
+            if (response.ok) {
+                setNeedReload(true)
+                toast.success(`${element.Name} deleted successfully`);
+                // Handle success scenario, e.g., show a success message
+            } else {
+                toast.error('Failed to delete domain');
+                // Handle failure scenario, e.g., show an error message
+            }
+        } catch (error) {
+            toast.error('Error occurred: ' + error);
+            // Handle error scenario, e.g., show an error message
+        }
+    }
+        return (
+            <div className={styles.container}>
+                <Link to={`/dns-records/${element.Name}`} onClick={handleClick} className={styles.links}>
+                    <p className={styles.domainName}>{element.Name}</p>
+                    <FinalIcon size={80} style={{ color: color }} />
+                    <p>{element.ResourceRecordSetCount} Records</p>
+                </Link>
+                <div className={styles.btn}><MdDelete size={25} style={{ cursor: 'pointer' }} color='red' onClick={handleDelete} /> <FaEdit  style={{cursor:'not-allowed'}} size={25} color='black' /></div>
+            </div>
+
+        )
+    }
+
+    export default DomainCard;
