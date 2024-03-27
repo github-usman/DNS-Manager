@@ -88,6 +88,7 @@ const PieChart = ({ data }) => {
           height: '50vh',
           backgroundColor: 'white',
           borderRadius: '10px',
+          boxShadow: '1px 1px 15px 1px #c9bfbf'
         }}
       >
         <canvas ref={pieChartRef}></canvas>
@@ -98,6 +99,7 @@ const PieChart = ({ data }) => {
           height: '50vh',
           backgroundColor: 'white',
           borderRadius: '10px',
+          boxShadow: '1px 1px 15px 1px #c9bfbf'
         }}
       >
         <canvas ref={lineChartRef}></canvas>

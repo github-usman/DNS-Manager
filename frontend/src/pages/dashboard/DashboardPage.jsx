@@ -10,6 +10,7 @@ import DomainCreationForm from '../create-domain/DomainCreationForm.jsx';
 import { DnsContext } from '../../context-api/DnsContext.jsx';
 import { MdOutlineCreateNewFolder } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
 // import LineChart from "../../components/static/chart/LineChart";
 
 const URL = import.meta.env.VITE_API_URI || '';
@@ -17,7 +18,7 @@ const URL = import.meta.env.VITE_API_URI || '';
 const DashboardPage = () => {
   const [Close, setClose] = useState(true);
   const [data, setData] = useState([]);
-  const [filterValue, setFilterValue] = useState([]);
+  const [filterValue, setFilterValue] = useState('');
   const [randomIndexes, setRandomIndexes] = useState([]);
   const { needReload, setNeedReload, createPageBtn, setCreatePageBtn } =
     useContext(DnsContext);
@@ -38,6 +39,7 @@ const DashboardPage = () => {
   useEffect(() => {
     fetchData();
     setNeedReload(false);
+    
   }, [needReload]);
 
   const hamburgerToggle = () => {
@@ -50,6 +52,24 @@ const DashboardPage = () => {
   const handlePageCreate = () => {
     const revertOfCreate = !createPageBtn;
     setCreatePageBtn(revertOfCreate);
+  };
+  // filter LOGIC---------------------------
+  // const [filteredData, setFilteredData] = useState([...data]);
+  const handleFilterChange = (event) => {
+    const selectedValue = event.target.value;
+    setFilterValue(selectedValue);
+    let newData = [...data];
+    if (selectedValue === "maxRecord") {
+      newData.sort((a, b) => a.ResourceRecordSetCount - b.ResourceRecordSetCount);
+     }else if (selectedValue === "minRecord") {
+      newData.sort((a, b) => b.ResourceRecordSetCount - a.ResourceRecordSetCount);
+     }else if (selectedValue === "increasing") {
+      newData.sort((a, b) => a.Name.localeCompare(b.Name));
+    } else if (selectedValue === "decreasing") {
+      newData.sort((a, b) => b.Name.localeCompare(a.Name));
+    }
+    setData(newData);
+    setFilterValue(true);
   };
 
   return (
@@ -86,12 +106,16 @@ const DashboardPage = () => {
           {/* filter methods */}
           <select
             id="filterOptions"
-            onChange={(e) => setFilterValue(e.target.value)}
+            onChange={handleFilterChange}
+            className={styles.dropDownHead}
           >
-            <option value="maximumRecord">MaximumRecord</option>
-            <option value="increasing">Increasing</option>
-            <option value="decreasing">Decreasing</option>
+            <option className={styles.dropdownList} value="" disabled selected hidden>Sort By</option>
+            <option className={styles.dropdownList} value="maxRecord">Records Increasing</option>
+            <option className={styles.dropdownList} value="minRecord">Records Decreasing</option>
+            <option className={styles.dropdownList} value="increasing">Increasing</option>
+            <option className={styles.dropdownList} value="decreasing">Decreasing</option>
           </select>
+
 
           <div className={styles['li']} onClick={handlePageCreate}>
             <button className={styles.icons}>

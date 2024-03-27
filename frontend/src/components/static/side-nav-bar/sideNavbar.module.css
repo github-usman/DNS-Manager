@@ -15,6 +15,7 @@
   flex-direction: column;
   justify-content: space-between;
   z-index: 99999999999999;
+  box-shadow: 1px 1px 2px 1px #3e4044;
 }
 
 .noSideNavbar {

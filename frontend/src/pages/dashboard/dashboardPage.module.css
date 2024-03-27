@@ -51,3 +51,21 @@ body {
   font-size: 20px;
   cursor: pointer;
 }
+
+
+.dropDownHead{
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: large;
+  box-shadow: 1px 1px 8px 1px #c9bfbf;
+}
+
+
+.dropdownList {
+  background: #f4ecec;
+}
+
+.dropdownList:hover {
+  background: #ab9494;
+}
