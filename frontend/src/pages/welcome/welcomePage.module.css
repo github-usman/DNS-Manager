@@ -21,8 +21,8 @@
 .reactTyped{
     font-size: 30px;
     color: #fff;
-    min-height: 150px;
-    /* "text-[30px]  md:text-[50px] text-[#fff] min-h-[100px] md:min-h-[150px]" */
+    min-height: 100px;
+
 }
 
 .btnGetStarted{

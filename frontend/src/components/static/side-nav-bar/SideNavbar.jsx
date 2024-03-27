@@ -17,7 +17,7 @@ const SideNavbar = ({ hamburgerToggle, Close }) => {
         <li><Link> <PiFolderSimpleUser className={styles.icons} />About</Link></li>
       </ul>
       <ul>
-        <li><Link><LuLogOut className={styles.icons} />Logout</Link></li>
+        <li><Link to='/'><LuLogOut className={styles.icons} />Logout</Link></li>
       </ul>
     </div>
   );

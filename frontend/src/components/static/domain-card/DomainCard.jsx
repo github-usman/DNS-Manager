@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext} from 'react'
 import styles from './domainCard.module.css'; 
 
 import { GiSlicedMushroom } from "react-icons/gi";
@@ -10,6 +10,9 @@ import { FaCertificate } from "react-icons/fa6";
 import { IoIosLocate } from "react-icons/io";
 import { FaLocationCrosshairs } from "react-icons/fa6"
 import { GiMushroomCloud } from "react-icons/gi";
+import { Link } from 'react-router-dom';
+import { DnsContext } from '../../../context-api/DnsContext';
+
 
 const DomainCard = ({element,randomIndex}) => {
 
@@ -42,15 +45,22 @@ const DomainCard = ({element,randomIndex}) => {
     ];
     const FinalIcon = listOfIcons[randomIndex] || GiSlicedMushroom;
     const color = listOfColor[randomIndex] || '#E2F4C5'
-    
-  return (
-    <div className={styles.container}>
-        <p className={styles.domainName}>{element.Name}</p>
-        <FinalIcon size={100} style={{color:color}}/>
-        <p>{element.ResourceRecordSetCount} Records</p>
+    const {setHostedZoneId} = useContext(DnsContext);
 
-    </div>
+    const handleClick = (e) => {
+       setHostedZoneId(element.Id);
+    };
+
+  
+
+  return (
+      <Link to={`/dns-records/${element.Name}`} onClick={handleClick} className={styles.container}>
+          <p className={styles.domainName}>{element.Name}</p>
+          <FinalIcon size={100} style={{color:color}}/>
+          <p>{element.ResourceRecordSetCount} Records</p>
+      </Link>
+  
   )
 }
 
-export default DomainCard
+export default DomainCard;

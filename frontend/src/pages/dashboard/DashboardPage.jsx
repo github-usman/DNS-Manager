@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import SideNavbar from "../../components/static/side-nav-bar/SideNavbar";
-import LogoHamBerger from "../../components/childComponents/logo/LogoHamBerger";
-import { FaUserCircle } from "react-icons/fa";
-import styles from "./dashboardPage.module.css";
 import axios from "axios";
-import DomainCard from "../../components/static/domain-card/DomainCard";
+import React, { useEffect, useState } from "react";
+import { FaUserCircle } from "react-icons/fa";
+import LogoHamBerger from "../../components/childComponents/logo/LogoHamBerger";
 import PieChart from "../../components/static/chart/PieChart";
+import DomainCard from "../../components/static/domain-card/DomainCard.jsx";
+import SideNavbar from "../../components/static/side-nav-bar/SideNavbar";
+import styles from "./dashboardPage.module.css";
 // import LineChart from "../../components/static/chart/LineChart";
 
 
@@ -19,7 +19,7 @@ const DashboardPage = () => {
 
   const fetchData = async () => {
     try {
-      const { data } = await axios.get(URL);
+      const { data } = await axios.get(`${URL}/Domain/all`);
       setData(data);
       const randomIndexesArray = data.map(() => Math.floor(Math.random() * data.length));
       setRandomIndexes(randomIndexesArray);
@@ -49,7 +49,7 @@ const DashboardPage = () => {
         </div>
       </div>
       
-
+  
       <div className={styles.bodySection}>
         {/* chart section */}
       <div>

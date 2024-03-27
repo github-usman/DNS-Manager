@@ -3,16 +3,21 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LoginPage from "./pages/login/LoginPage.jsx";
 import WelcomePage from "./pages/welcome/WelcomePage.jsx";
 import DashboardPage from "./pages/dashboard/DashboardPage.jsx";
+import { DnsProvider } from "./context-api/DnsContext.jsx";
+import DNSRecords from "./components/static/dns-record-list/DNSRecords.jsx";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<WelcomePage/>} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
-      </Routes>
-    </BrowserRouter>
+    <DnsProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<WelcomePage/>} />
+          <Route path="/dns-records/:domainName" element={<DNSRecords />} />
+          <Route path="/login" element={<LoginPage />} />
+              <Route path="/dashboard" element={<DashboardPage />} />
+        </Routes>
+      </BrowserRouter>
+    </DnsProvider>
   );
 }
 

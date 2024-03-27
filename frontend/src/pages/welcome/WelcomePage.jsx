@@ -28,8 +28,7 @@ const WelcomePage = () => {
             <input type="text" className={styles.reactTypedInner} disabled />
           </ReactTyped>
         </h3>
-        <div className="pt-[100px]">
-          
+        <div >
             <Link to='/login' className={styles.btnGetStarted}>
               Get started
             </Link>

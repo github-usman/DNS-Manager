@@ -19,6 +19,7 @@ body{
   height: 100vh;
   margin-left: 247px;
   padding:0 5px;
+  max-width: 1280px
 }
 
 @media screen and (max-width: 1240px) {
@@ -36,5 +37,5 @@ body{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, auto));
   gap: 2rem;
-  max-width: 1280px
+
 }

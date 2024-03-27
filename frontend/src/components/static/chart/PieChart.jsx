@@ -6,7 +6,7 @@ const PieChart = ({ data }) => {
   const lineChartRef = useRef(null);
 
   useEffect(() => {
-    // Destroy any existing Chart instances for pie chart
+    // Destroy any existing Chart 
     if (pieChartRef.current && pieChartRef.current.chart) {
       pieChartRef.current.chart.destroy();
     }
@@ -42,7 +42,8 @@ const PieChart = ({ data }) => {
         label: 'Records of DNS Each domain',
         data: data.map(item => item.ResourceRecordSetCount),
         borderColor: 'blue',
-        borderWidth: 2
+        borderWidth: 2,
+        backgroundColor:'white'
       }]
     };
   
@@ -73,10 +74,10 @@ const PieChart = ({ data }) => {
 
   return (
     <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-      <div style={{ width: '50%' ,height:'50vh'}}>
+      <div style={{ width: '45%' ,height:'50vh',backgroundColor:'white', borderRadius:"10px"}}>
         <canvas ref={pieChartRef}></canvas>
       </div>
-      <div style={{ width: '50%',height:'50vh' }}>
+      <div style={{ width: '45%' ,height:'50vh',backgroundColor:'white', borderRadius:"10px"}}>
         <canvas ref={lineChartRef}></canvas>
       </div>
     </div>

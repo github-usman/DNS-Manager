@@ -25,6 +25,8 @@ const LoginPage = () => {
                   >
                     Next
                   </Link>
+
+                  <h1> I am WORKING ON IT PLEASE PROCEED NEXT USING 'Next' </h1>
                 </div>
               </div>
             </form>
