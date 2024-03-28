@@ -37,7 +37,7 @@ function DomainCreateMultiple({ handleActiveMethods }) {
     };
 
 
-        // Function to handle reading file contents and setting domainName
+    // Function to handle reading file contents and setting domainName
     const handleJsonFileChange = async (event) => {
         const file = event.target.files[0];
         const reader = new FileReader();
@@ -59,16 +59,16 @@ function DomainCreateMultiple({ handleActiveMethods }) {
             const fileContent = event.target.result;
             // Convert CSV data to JSON
             const jsonData = await csvToJson(fileContent);
-                 // Convert JSON array to string
-                const jsonString = JSON.stringify(jsonData, null, 2);
-                setDomainName(jsonString);
+            // Convert JSON array to string
+            const jsonString = JSON.stringify(jsonData, null, 2);
+            setDomainName(jsonString);
         };
 
         reader.readAsText(file);
     };
     return (
-        <div>
-            <form onSubmit={handleSubmit} className={styles.form}>
+        <div style={{ width: '100%' }}>
+            <form onSubmit={handleSubmit} className={styles.form} >
                 <label htmlFor="domainName">Enter your Multiple Domain Names</label>
                 <br />
                 <br />
@@ -88,18 +88,21 @@ function DomainCreateMultiple({ handleActiveMethods }) {
                                        {
                                          "Name" :"ansari.example.in"
                                        }
-                                ]`} cols={100} rows={13} required></textarea>
+                                ]`}
+                    style={{ width: '100%' }}
+                    rows={15}
+                    required></textarea>
                 <br />
                 <div className={styles.jsonContainer}>
                     <div>
                         <label htmlFor="jsonFile" className={styles.fileInputLabel}>
                             Select JSON file
                         </label>
-                        <input type="file" id="jsonFile" accept=".json" className={styles.fileInput} onChange={handleJsonFileChange} />  
+                        <input type="file" id="jsonFile" accept=".json" className={styles.fileInput} onChange={handleJsonFileChange} />
                     </div>
                     <div>
                         <label htmlFor="csvFile" className={styles.fileInputLabel}>
-                        Select CSV file
+                            Select CSV file
                         </label>
                         <input type="file" id="csvFile" accept=".csv" className={styles.fileInput} onChange={handleCsvFileChange} />
                     </div>

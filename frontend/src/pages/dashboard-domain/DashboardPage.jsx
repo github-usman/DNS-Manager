@@ -75,7 +75,7 @@ const DashboardPage = () => {
   return (
     <div className={styles.container}>
       <div className={styles.navbar}>
-        <div>
+        <div className={styles.logo} >
           <SideNavbar hamburgerToggle={hamburgerToggle} Close={Close} />
           <LogoHamBerger hamburgerToggle={hamburgerToggle} />
         </div>
@@ -84,7 +84,7 @@ const DashboardPage = () => {
         </div>
       </div>
 
-      <div className={styles.bodySection}>
+      <div className={styles.bodySection} style={{ marginLeft: !Close && "0px", transition: 'all 0.5s' }}>
         {/* chart section */}
         <DomainCreationForm />
 
@@ -119,12 +119,12 @@ const DashboardPage = () => {
 
           <div className={styles['li']} onClick={handlePageCreate}>
             {
-              !domainCreatePage?
-            <button className={styles.icons}>
-              <MdOutlineCreateNewFolder />
-              Create New Hosted Zone
-            </button>
-            :''
+              !domainCreatePage ?
+                <button className={styles.icons}>
+                  <MdOutlineCreateNewFolder />
+                  Create New Hosted Zone
+                </button>
+                : ''
             }
           </div>
         </div>

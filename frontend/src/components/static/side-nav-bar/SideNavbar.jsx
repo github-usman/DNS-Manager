@@ -8,17 +8,22 @@ import { Link } from 'react-router-dom';
 import LogoHamBerger from '../../childComponents/logo/LogoHamBerger.jsx';
 import { MdOutlineCreateNewFolder } from 'react-icons/md';
 import { DnsContext } from '../../../context-api/DnsContext.jsx';
-const SideNavbar = ({ hamburgerToggle, Close }) => {
-  const { domainCreatePage, setDomainCreatePage } = useContext(DnsContext);
+import toast from 'react-hot-toast';
+const SideNavbar = ({ hamburgerToggle, Close}) => {
+  const { domainCreatePage, setDomainCreatePage,setIsLoggedLogin } = useContext(DnsContext);
 
   const handlePageCreate = () => {
     const revertOfCreate = !domainCreatePage;
     setDomainCreatePage(revertOfCreate);
   };
+  const handleLogout = ()=>{
+    setIsLoggedLogin(false);
+    toast.success('Logout Successfully, Thank you!')
+  }
   return (
     <div className={Close ? styles.sideNavbar : styles.noSideNavbar}>
       <ul>
-        <div>
+        <div className={styles.logo}>
           <LogoHamBerger hamburgerToggle={hamburgerToggle} />
         </div>
         <div className={styles['li']}>
@@ -27,7 +32,7 @@ const SideNavbar = ({ hamburgerToggle, Close }) => {
             Home
           </Link>
         </div>
-        <div className={styles[`${domainCreatePage?'notDisplay':'li'}`]} onClick={handlePageCreate}>
+        <div className={styles[`${domainCreatePage ? 'notDisplay' : 'li'}`]} onClick={handlePageCreate}>
           <Link>
             <MdOutlineCreateNewFolder className={styles.icons} />
             Create Hosted Zone
@@ -48,9 +53,8 @@ const SideNavbar = ({ hamburgerToggle, Close }) => {
         </div>
       </ul>
       <ul>
-        <div className={styles['li']}>
-          <Link to={'/'}>
-            {' '}
+        <div className={styles['li']} onClick={handleLogout}>
+          <Link to={'/'} >
             <PiFolderSimpleUser className={styles.icons} />
             Logout
           </Link>

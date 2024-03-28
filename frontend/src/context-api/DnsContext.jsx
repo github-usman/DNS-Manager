@@ -7,6 +7,13 @@ const DnsProvider = ({ children }) => {
   const [domainCreatePage, setDomainCreatePage] = useState(true);
   const [needReload, setNeedReload] = useState(false);
 
+
+  // login
+  const [isLoggedLogin, setIsLoggedLogin] = useState(() => {
+    const storedIsLoggedLogin = sessionStorage.getItem('isLoggedLogin');
+    return storedIsLoggedLogin ? JSON.parse(storedIsLoggedLogin) : false;
+  });
+
   return (
     <DnsContext.Provider
       value={{
@@ -16,6 +23,8 @@ const DnsProvider = ({ children }) => {
         setDomainCreatePage,
         needReload,
         setNeedReload,
+        isLoggedLogin,
+        setIsLoggedLogin
       }}
     >
       {children}

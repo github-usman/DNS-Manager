@@ -8,16 +8,13 @@ const RecordsCard = ({ details }) => {
   );
   return (
     <div className={styles.container}>
-      <p className={styles.cell} style={{ width: '300px' }}>
-        {' '}
+      <p className={styles.cell} style={{ width: '22%' }}>
         <button>Delete</button> <button>Edit</button> {details.Name}
       </p>
-      <p className={styles.cell} style={{ width: '100px' }}>
-        {' '}
+      <p className={styles.cell} style={{ width: '5%' }}>
         {details.Type}
       </p>
-      <p className={styles.cell} style={{ width: '100px' }}>
-        {' '}
+      <p className={styles.cell} style={{ width: '8%' }}>
         {details.TTL}
       </p>
       <div className={styles.cellRight}>

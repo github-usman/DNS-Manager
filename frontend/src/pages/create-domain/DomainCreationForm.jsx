@@ -7,7 +7,7 @@ import DomainCreateSingle from '../../components/static/domain-create-single/Dom
 
 function DomainCreationForm() {
     const { domainCreatePage, setDomainCreatePage } = useContext(DnsContext);
-    const [active, setActive ] = useState('default');
+    const [active, setActive ] = useState('multipleDomain');
 
     // toogle the create page
     const handlePageCreate = () => {

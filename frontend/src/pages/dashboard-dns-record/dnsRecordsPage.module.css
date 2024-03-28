@@ -18,14 +18,15 @@ body {
   height: 100vh;
   margin-left: 247px;
   padding: 0 5px;
-  max-width: 1280px;
+  max-width: 100%;
 }
-
+.logo{
+  margin-left: 1rem;
+}
 @media screen and (max-width: 1240px) {
   .bodySection {
     border-left: 3px solid #c0eaf7;
     height: 100vh;
-    margin-left: 0px;
     padding: 0 5px;
   }
 }

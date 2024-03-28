@@ -1,20 +1,22 @@
 // Login.js
 
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import styles from './loginPage.module.css';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { DnsContext } from '../../context-api/DnsContext';
 const passClient = import.meta.env.VITE_API_URI_PASS || '';
 const userClient = import.meta.env.VITE_API_URI_USER || '';
 function Login() {
   const [username, setUsername] = useState('Admin');
   const [password, setPassword] = useState('Admin@123!@#');
   const location = useNavigate();
-
+  const { setIsLoggedLogin } = useContext(DnsContext);
   const handleSubmit = (event) => {
     event.preventDefault();
     setTimeout(() => {
       if (username === userClient && password === passClient) {
+        setIsLoggedLogin(true);
         toast.success('Welcome! Admin');
         location('/dashboard');
       } else {

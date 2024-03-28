@@ -44,7 +44,7 @@ const DNSRecords = () => {
   return (
     <div className={styles.container}>
       <div className={styles.navbar}>
-        <div>
+         <div className={styles.logo} >
           <SideNavbar hamburgerToggle={hamburgerToggle} Close={Close} />
           <LogoHamBerger hamburgerToggle={hamburgerToggle} />
         </div>
@@ -54,18 +54,18 @@ const DNSRecords = () => {
       </div>
 
       {/* dns list  */}
-      <div className={styles.bodySection}>
+      <div className={styles.bodySection} style={{ marginLeft: !Close && "0", transition: 'all 0.4s' }}>
         <h1 style={{ textAlign: 'center' }}>List of DNS Records </h1>
         {/* schema */}
         <div className={styles.schema}>
-          <p className={styles.schemaCellLeft} style={{ width: '300px' }}>
+          <p className={styles.schemaCellLeft} style={{ width: '22%' }}>
             Name
           </p>
-          <p className={styles.schemaCell} style={{ width: '100px' }}>
+          <p className={styles.schemaCell} style={{ width: '5%' }}>
             {' '}
             Type
           </p>
-          <p className={styles.schemaCell} style={{ width: '100px' }}>
+          <p className={styles.schemaCell} style={{ width: '8%' }}>
             {' '}
             TTL
           </p>
