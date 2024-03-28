@@ -52,3 +52,10 @@
 .icons {
   font-size: 20px;
 }
+
+
+/*  */
+
+.notDisplay{
+  display: none;
+}

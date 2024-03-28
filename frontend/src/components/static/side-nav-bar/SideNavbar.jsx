@@ -9,11 +9,11 @@ import LogoHamBerger from '../../childComponents/logo/LogoHamBerger.jsx';
 import { MdOutlineCreateNewFolder } from 'react-icons/md';
 import { DnsContext } from '../../../context-api/DnsContext.jsx';
 const SideNavbar = ({ hamburgerToggle, Close }) => {
-  const { createPageBtn, setCreatePageBtn } = useContext(DnsContext);
+  const { domainCreatePage, setDomainCreatePage } = useContext(DnsContext);
 
   const handlePageCreate = () => {
-    const revertOfCreate = !createPageBtn;
-    setCreatePageBtn(revertOfCreate);
+    const revertOfCreate = !domainCreatePage;
+    setDomainCreatePage(revertOfCreate);
   };
   return (
     <div className={Close ? styles.sideNavbar : styles.noSideNavbar}>
@@ -27,7 +27,7 @@ const SideNavbar = ({ hamburgerToggle, Close }) => {
             Home
           </Link>
         </div>
-        <div className={styles['li']} onClick={handlePageCreate}>
+        <div className={styles[`${domainCreatePage?'notDisplay':'li'}`]} onClick={handlePageCreate}>
           <Link>
             <MdOutlineCreateNewFolder className={styles.icons} />
             Create Hosted Zone

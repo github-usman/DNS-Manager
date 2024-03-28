@@ -27,3 +27,18 @@
 .form {
   margin-top: 2rem;
 }
+
+.icons {
+  background-color: rgb(232, 32, 89);
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 1px 1px 8px 2px #6a6363;
+}

@@ -2,12 +2,13 @@ import React, { useContext, useState } from 'react';
 import styles from './domainCreationForm.module.css';
 import { DnsContext } from '../../context-api/DnsContext';
 import toast from 'react-hot-toast';
+import { RxCross2 } from "react-icons/rx";
 const URL = import.meta.env.VITE_API_URI || '';
 
 function DomainCreationForm() {
   const { setNeedReload } = useContext(DnsContext);
   const [domainName, setDomainName] = useState('');
-  const { createPageBtn } = useContext(DnsContext);
+  const { domainCreatePage,setDomainCreatePage } = useContext(DnsContext);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -34,14 +35,35 @@ function DomainCreationForm() {
     setDomainName('');
   };
 
+// toogle the create page
+  const handlePageCreate = () => {
+    const revertOfCreate = !domainCreatePage;
+    setDomainCreatePage(revertOfCreate);
+  };
+
   return (
     <div
       className={styles.container}
-      style={{ display: `${createPageBtn === true ? 'flex' : 'none'}` }}
+      style={{ display: `${domainCreatePage === true ? 'flex' : 'none'}` }}
     >
-      <h2 style={{ alignSelf: 'start' }}>
-        Domain Creation or Create New Hosted Zone
-      </h2>
+
+      <div  style={{ display:'flex', justifyContent:'space-between',width:'100%' }}>
+              
+          <h2 >
+            Domain Creation or Create New Hosted Zone
+          </h2>
+
+          <div className={styles['li']} onClick={handlePageCreate}>
+            {
+              domainCreatePage?
+                <button className={styles.icons}>
+                  <RxCross2/>
+                </button>
+            :''
+            }
+          </div>
+      </div>
+    
       <form onSubmit={handleSubmit} className={styles.form}>
         <label htmlFor="domainName">Domain Name:</label>
         <br />

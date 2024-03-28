@@ -4,7 +4,7 @@ const DnsContext = createContext();
 
 const DnsProvider = ({ children }) => {
   const [hostedZoneId, setHostedZoneId] = useState(null);
-  const [createPageBtn, setCreatePageBtn] = useState(false);
+  const [domainCreatePage, setDomainCreatePage] = useState(true);
   const [needReload, setNeedReload] = useState(false);
 
   return (
@@ -12,8 +12,8 @@ const DnsProvider = ({ children }) => {
       value={{
         hostedZoneId,
         setHostedZoneId,
-        createPageBtn,
-        setCreatePageBtn,
+        domainCreatePage,
+        setDomainCreatePage,
         needReload,
         setNeedReload,
       }}

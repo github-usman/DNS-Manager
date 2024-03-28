@@ -1,10 +1,10 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
-import LogoHamBerger from '../../components/childComponents/logo/LogoHamBerger';
-import PieChart from '../../components/static/chart/PieChart';
+import LogoHamBerger from '../../components/childComponents/logo/LogoHamBerger.jsx';
+import PieChart from '../../components/static/chart/PieChart.jsx';
 import DomainCard from '../../components/static/domain-card/DomainCard.jsx';
-import SideNavbar from '../../components/static/side-nav-bar/SideNavbar';
+import SideNavbar from '../../components/static/side-nav-bar/SideNavbar.jsx';
 import styles from './dashboardPage.module.css';
 import DomainCreationForm from '../create-domain/DomainCreationForm.jsx';
 import { DnsContext } from '../../context-api/DnsContext.jsx';
@@ -20,7 +20,7 @@ const DashboardPage = () => {
   const [data, setData] = useState([]);
   const [filterValue, setFilterValue] = useState('');
   const [randomIndexes, setRandomIndexes] = useState([]);
-  const { needReload, setNeedReload, createPageBtn, setCreatePageBtn } =
+  const { needReload, setNeedReload, domainCreatePage, setDomainCreatePage } =
     useContext(DnsContext);
 
   const fetchData = async () => {
@@ -39,7 +39,7 @@ const DashboardPage = () => {
   useEffect(() => {
     fetchData();
     setNeedReload(false);
-    
+
   }, [needReload]);
 
   const hamburgerToggle = () => {
@@ -50,8 +50,8 @@ const DashboardPage = () => {
   // toggle new Domain page
 
   const handlePageCreate = () => {
-    const revertOfCreate = !createPageBtn;
-    setCreatePageBtn(revertOfCreate);
+    const revertOfCreate = !domainCreatePage;
+    setDomainCreatePage(revertOfCreate);
   };
   // filter LOGIC---------------------------
   // const [filteredData, setFilteredData] = useState([...data]);
@@ -61,9 +61,9 @@ const DashboardPage = () => {
     let newData = [...data];
     if (selectedValue === "maxRecord") {
       newData.sort((a, b) => a.ResourceRecordSetCount - b.ResourceRecordSetCount);
-     }else if (selectedValue === "minRecord") {
+    } else if (selectedValue === "minRecord") {
       newData.sort((a, b) => b.ResourceRecordSetCount - a.ResourceRecordSetCount);
-     }else if (selectedValue === "increasing") {
+    } else if (selectedValue === "increasing") {
       newData.sort((a, b) => a.Name.localeCompare(b.Name));
     } else if (selectedValue === "decreasing") {
       newData.sort((a, b) => b.Name.localeCompare(a.Name));
@@ -118,10 +118,14 @@ const DashboardPage = () => {
 
 
           <div className={styles['li']} onClick={handlePageCreate}>
+            {
+              !domainCreatePage?
             <button className={styles.icons}>
               <MdOutlineCreateNewFolder />
               Create New Hosted Zone
             </button>
+            :''
+            }
           </div>
         </div>
 
