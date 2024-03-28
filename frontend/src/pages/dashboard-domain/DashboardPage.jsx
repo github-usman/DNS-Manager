@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
 import LogoHamBerger from '../../components/childComponents/logo/LogoHamBerger.jsx';
 import PieChart from '../../components/static/chart/PieChart.jsx';
-import DomainCard from '../../components/static/domain-card/DomainCard.jsx';
+import DomainCard from '../../components/static/domain-grid/DomainCard.jsx';
 import SideNavbar from '../../components/static/side-nav-bar/SideNavbar.jsx';
 import styles from './dashboardPage.module.css';
 import DomainCreationForm from '../create-domain/DomainCreationForm.jsx';

@@ -2,31 +2,12 @@
   display: flex;
   background-color: pink;
   flex-direction: column;
-  padding: 1rem 1rem 10rem 1rem;
+  padding: 1rem 1rem 1rem 1rem;
   align-items: center;
   margin: 1rem;
   border-radius: 8px;
 }
-.btn {
-  padding: 0.8rem 2rem;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-}
-.btn:hover {
-  background-color: black;
-  color: white;
-}
-.input {
-  padding: 0.8rem 1rem;
-  border: none;
-  border-radius: px;
-  margin-top: 0.5rem;
-  width: 25rem;
-}
-.form {
-  margin-top: 2rem;
-}
+
 
 .icons {
   background-color: rgb(232, 32, 89);
@@ -41,4 +22,31 @@
   font-size: 20px;
   cursor: pointer;
   box-shadow: 1px 1px 8px 2px #6a6363;
+}
+
+.btn{
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  box-shadow: 1px 1px 8px 2px #6a6363;
+  background-color: rgb(41, 113, 247);
+  border: none;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+
+}
+
+.btn:hover{
+  background-color: rgb(20, 66, 151);
+}
+
+.btnContainer{
+  display: flex;
+  gap: 2rem;
+  margin: 1rem;
+
+}
+
+.noBtnContainer{
+  display: none;
 }
