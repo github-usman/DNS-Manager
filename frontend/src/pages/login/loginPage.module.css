@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 8rem);
+  height: 100vh;
   background-color: #f5f5f5;
 }
 
