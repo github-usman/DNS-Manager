@@ -1,0 +1,74 @@
+body {
+  background-color: powderblue;
+}
+
+.container {
+  background-color: powderblue;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 3rem;
+}
+
+.bodySection {
+  border-left: 3px solid #c0eaf7;
+  height: 100vh;
+  margin-left: 247px;
+  padding: 0 5px;
+  max-width: 100%;
+}
+.logo{
+  margin-left: 1rem;
+}
+
+@media screen and (max-width: 1240px) {
+  .bodySection {
+    border-left: 3px solid #c0eaf7;
+    height: 100vh;
+    padding: 0 5px;
+  }
+}
+
+/* domain card */
+
+.domainCard {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, auto));
+  
+  gap: 2rem;
+}
+
+.icons {
+  background-color: blue;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
+.dropDownHead{
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: large;
+  box-shadow: 1px 1px 8px 1px #c9bfbf;
+}
+
+
+.dropdownList {
+  background: #f4ecec;
+}
+
+.dropdownList:hover {
+  background: #ab9494;
+}

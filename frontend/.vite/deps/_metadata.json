@@ -1,0 +1,130 @@
+{
+  "hash": "b7b9986c",
+  "configHash": "de1e6f48",
+  "lockfileHash": "c6262678",
+  "browserHash": "ec2fc226",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "ae4d9cb0",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "c149fb58",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "4c73f65e",
+      "needsInterop": false
+    },
+    "react-hot-toast": {
+      "src": "../../node_modules/react-hot-toast/dist/index.mjs",
+      "file": "react-hot-toast.js",
+      "fileHash": "8beb2082",
+      "needsInterop": false
+    },
+    "react-typed": {
+      "src": "../../node_modules/react-typed/dist/mjs/index.js",
+      "file": "react-typed.js",
+      "fileHash": "fee945d5",
+      "needsInterop": false
+    },
+    "react-awesome-reveal": {
+      "src": "../../node_modules/react-awesome-reveal/dist/index.js",
+      "file": "react-awesome-reveal.js",
+      "fileHash": "1e741c9f",
+      "needsInterop": false
+    },
+    "react-icons/io": {
+      "src": "../../node_modules/react-icons/io/index.mjs",
+      "file": "react-icons_io.js",
+      "fileHash": "e83cc8e1",
+      "needsInterop": false
+    },
+    "axios": {
+      "src": "../../node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "9d33f973",
+      "needsInterop": false
+    },
+    "react-icons/fa": {
+      "src": "../../node_modules/react-icons/fa/index.mjs",
+      "file": "react-icons_fa.js",
+      "fileHash": "75a97858",
+      "needsInterop": false
+    },
+    "react-icons/md": {
+      "src": "../../node_modules/react-icons/md/index.mjs",
+      "file": "react-icons_md.js",
+      "fileHash": "14e3edb8",
+      "needsInterop": false
+    },
+    "react-icons/rx": {
+      "src": "../../node_modules/react-icons/rx/index.mjs",
+      "file": "react-icons_rx.js",
+      "fileHash": "bacfcfde",
+      "needsInterop": false
+    },
+    "chart.js/auto": {
+      "src": "../../node_modules/chart.js/auto/auto.js",
+      "file": "chart__js_auto.js",
+      "fileHash": "95218ea2",
+      "needsInterop": false
+    },
+    "react-icons/gi": {
+      "src": "../../node_modules/react-icons/gi/index.mjs",
+      "file": "react-icons_gi.js",
+      "fileHash": "1f106ead",
+      "needsInterop": false
+    },
+    "react-icons/fa6": {
+      "src": "../../node_modules/react-icons/fa6/index.mjs",
+      "file": "react-icons_fa6.js",
+      "fileHash": "21c18927",
+      "needsInterop": false
+    },
+    "react-icons/fi": {
+      "src": "../../node_modules/react-icons/fi/index.mjs",
+      "file": "react-icons_fi.js",
+      "fileHash": "744c59bc",
+      "needsInterop": false
+    },
+    "react-icons/lu": {
+      "src": "../../node_modules/react-icons/lu/index.mjs",
+      "file": "react-icons_lu.js",
+      "fileHash": "359ed040",
+      "needsInterop": false
+    },
+    "react-icons/pi": {
+      "src": "../../node_modules/react-icons/pi/index.mjs",
+      "file": "react-icons_pi.js",
+      "fileHash": "1b8fd625",
+      "needsInterop": false
+    },
+    "csvtojson": {
+      "src": "../../node_modules/csvtojson/browser/browser.js",
+      "file": "csvtojson.js",
+      "fileHash": "cd99cc5b",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-DXOUNB47": {
+      "file": "chunk-DXOUNB47.js"
+    },
+    "chunk-DY6CJ4C4": {
+      "file": "chunk-DY6CJ4C4.js"
+    },
+    "chunk-JBG67EE7": {
+      "file": "chunk-JBG67EE7.js"
+    },
+    "chunk-UV5CTPV7": {
+      "file": "chunk-UV5CTPV7.js"
+    }
+  }
+}

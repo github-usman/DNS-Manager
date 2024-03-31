@@ -1,0 +1,65 @@
+.sideNavbar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgb(21, 91, 220);
+  background: linear-gradient(
+    180deg,
+    rgb(41, 113, 247) 0%,
+    rgba(6, 57, 146, 1) 100%
+  );
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 99999999999999;
+  box-shadow: 1px 1px 2px 1px #3e4044;
+}
+
+.noSideNavbar {
+  display: none;
+}
+.sideNavbar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sideNavbar .li {
+  padding: 10px;
+  width: 90%;
+  margin: auto;
+  cursor: pointer;
+}
+.sideNavbar .li > * {
+  color: #fff;
+  text-decoration: none;
+}
+
+.sideNavbar .li:hover {
+  background: rgb(67, 125, 233);
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+.sideNavbar .li a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icons {
+  font-size: 20px;
+}
+
+.logo{
+  margin-left: 1rem;
+}
+
+
+/*  */
+
+.notDisplay{
+  display: none;
+}
