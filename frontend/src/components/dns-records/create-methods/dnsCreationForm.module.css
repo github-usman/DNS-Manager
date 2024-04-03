@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  background-color: pink;
+  background-color: rgb(236, 223, 166);
   flex-direction: column;
   padding: 1rem 1rem 1rem 1rem;
   align-items: center;

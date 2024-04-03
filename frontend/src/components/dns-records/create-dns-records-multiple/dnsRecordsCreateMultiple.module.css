@@ -1,18 +1,18 @@
 
 .jsonInputArea::placeholder{
-  background-color: #20272b;
+  background-color: #3b3d3f;
   color: #957979;
 }
 
 .jsonInputArea{
   border-radius: 5px;
-  background-color: #20272b;
+  background-color: #3b3d3f;
   color: #fff;
   padding: 1rem;
 }
 
 .btn:hover {
-  background-color: black;
+  background-color: 3b3d3f;
   color: white;
 }
 

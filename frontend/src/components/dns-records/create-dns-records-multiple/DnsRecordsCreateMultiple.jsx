@@ -5,7 +5,7 @@ import { DnsContext } from '../../../context-api/DnsContext';
 import { csvToJson } from '../../../utils/csvToJson';
 const URL = import.meta.env.VITE_API_URI || '';
 
-function DnsRecordsCreateMultiple({ handleActiveMethods,HostedZoneId}) {
+function DnsRecordsCreateMultiple({ handleActiveMethods, HostedZoneId }) {
     const { setNeedReload } = useContext(DnsContext);
     const [domainName, setDomainName] = useState('');
     const [csvData, setCsvData] = useState('');
@@ -20,7 +20,7 @@ function DnsRecordsCreateMultiple({ handleActiveMethods,HostedZoneId}) {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(newDomainName),
-            });            
+            });
             console.log('resoponse after creat', response);
             if (response.ok) {
                 setNeedReload(true);
@@ -77,20 +77,31 @@ function DnsRecordsCreateMultiple({ handleActiveMethods,HostedZoneId}) {
                     value={domainName}
                     onChange={(event) => setDomainName(event.target.value)} // do not change the literals these are the designs in page also 
                     placeholder={`
-                  // please  Enter your Valid domains here in following format
+                  // please  Enter your Valid dns Records here in following format
                                 [
-                                       {
-                                          "Name" :"example.app"
-                                        },
-                                        {
-                                         "Name" :"usman.example.app"
-                                       },
-                                       {
-                                         "Name" :"ansari.example.in"
-                                       }
+                                    {
+                                        "Name": "ipv7.loveyou.com.",
+                                        "Type": "AAAA",
+                                        "TTL": 3600,
+                                        "ResourceRecords": [
+                                            {
+                                                "Value": "2001:0db8:85a3:0000:0000:8a2e:0370:7334"
+                                            }
+                                        ]
+                                     },
+                                     {
+                                        "Name": "ipv.loveyou.com.",
+                                        "Type": "AAAA",
+                                        "TTL": 3600,
+                                        "ResourceRecords": [
+                                            {
+                                                "Value": "2001:0db8:85a3:0000:0000:8a2e:0370:7338"
+                                            }
+                                        ]
+                                     }
                                 ]`}
                     style={{ width: '100%' }}
-                    rows={15}
+                    rows={25}
                     required></textarea>
                 <br />
                 <div className={styles.jsonContainer}>
