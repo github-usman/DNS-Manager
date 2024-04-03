@@ -5,10 +5,10 @@ export const createMultiDNSRecords = async (
   res,
   client,
   ChangeResourceRecordSetsCommand,
-  HostedZoneId,
   defaultTTL,
 ) => {
   const dnsRecords = req.body; // in this body is an array of DNS records
+  const { HostedZoneId } = req.query;
   try {
     const changeBatch = {
       Changes: dnsRecords.map((record) => ({

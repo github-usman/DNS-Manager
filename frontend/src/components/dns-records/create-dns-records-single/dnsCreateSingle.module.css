@@ -1,0 +1,44 @@
+
+
+.btn:hover {
+  background-color: black;
+  color: white;
+}
+
+
+.input {
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: px;
+  margin-top: 0.5rem;
+  width: 25rem;
+}
+.form {
+  margin-top: 2rem;
+}
+.btnActive, .btn{
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  box-shadow: 1px 1px 8px 2px #6a6363;
+  background-color: rgb(41, 113, 247);
+  border: none;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 1rem;
+
+}
+.btn{
+  background-color: white;
+  color: black;
+}
+
+.btnActive:hover{
+  background-color: rgb(20, 66, 151);
+}
+
+
+.btnContainer{
+  display: flex;
+  justify-content: space-between;
+}

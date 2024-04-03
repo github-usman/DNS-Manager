@@ -6,6 +6,7 @@ import SideNavbar from '../../components/childComponents/side-nav-bar/SideNavbar
 import LogoHamBerger from '../../components/childComponents/logo/LogoHamBerger';
 import { FaUserCircle } from 'react-icons/fa';
 import RecordsCard from '../../components/dns-records/dns-record-list/RecordsCard';
+import DNSCreationForm from '../../components/dns-records/create-methods/DNSCreationForm';
 // import { useLocation } from 'react-router-dom';
 const URL = import.meta.env.VITE_API_URI || '';
 
@@ -55,6 +56,7 @@ const DNSRecords = () => {
 
       {/* dns list  */}
       <div className={styles.bodySection} style={{ marginLeft: !Close && "0", transition: 'all 0.4s' }}>
+      <DNSCreationForm  HostedZoneId={convertHostedZoneId}/>
         <h1 style={{ textAlign: 'center' }}>List of DNS Records </h1>
         {/* schema */}
         <div className={styles.schema}>

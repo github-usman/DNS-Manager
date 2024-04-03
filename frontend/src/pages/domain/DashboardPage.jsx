@@ -85,7 +85,6 @@ const DashboardPage = () => {
       </div>
 
       <div className={styles.bodySection} style={{ marginLeft: !Close && "0px", transition: 'all 0.5s' }}>
-        {/* chart section */}
         <DomainCreationForm />
 
         <div>

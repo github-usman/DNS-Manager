@@ -34,7 +34,6 @@ export const createMultiDNSRecordsHandler = async (req, res) => {
       res,
       client,
       ChangeResourceRecordSetsCommand,
-      HostedZoneId,
       defaultTTL,
     );
   } catch (error) {
