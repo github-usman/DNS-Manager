@@ -25,6 +25,7 @@ function DnsRecordsCreateMultiple({ handleActiveMethods, HostedZoneId }) {
             if (response.ok) {
                 setNeedReload(true);
                 toast.success(`All Domains Created successfully`);
+                setDomainName('');
                 // Handle success scenario, e.g., show a success message
             } else {
                 toast.error('Failed to creation domain');
@@ -33,7 +34,7 @@ function DnsRecordsCreateMultiple({ handleActiveMethods, HostedZoneId }) {
         } catch (error) {
             toast.error('Error occurred: ' + error);
         }
-        setDomainName('');
+     
     };
 
 

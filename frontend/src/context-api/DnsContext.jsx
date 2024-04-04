@@ -3,7 +3,7 @@ import React, { createContext, useState } from 'react';
 const DnsContext = createContext();
 
 const DnsProvider = ({ children }) => {
-  const [hostedZoneId, setHostedZoneId] = useState(null);
+  // const [hostedZoneId, setHostedZoneId] = useState(null);
   const [domainCreatePage, setDomainCreatePage] = useState(true);
   const [needReload, setNeedReload] = useState(false);
 
@@ -14,10 +14,21 @@ const DnsProvider = ({ children }) => {
     return storedIsLoggedLogin ? JSON.parse(storedIsLoggedLogin) : false;
   });
 
+  // HostedZondeID
+  const [HostedZoneId, setHostedZoneId] = useState(() => {
+    const storedHostedZoneId = sessionStorage.getItem('HostedZoneId');
+    console.log('Stored HostedZoneId:', storedHostedZoneId);
+  
+    return storedHostedZoneId && storedHostedZoneId.length > 0 ? JSON.parse(storedHostedZoneId) : '';
+  });
+  
+
+  console.log('Stored SSSSSSSSSSSSSSSSSSSSSSSSSSSS AFTER HostedZoneId:', HostedZoneId);
+
   return (
     <DnsContext.Provider
       value={{
-        hostedZoneId,
+        HostedZoneId,
         setHostedZoneId,
         domainCreatePage,
         setDomainCreatePage,

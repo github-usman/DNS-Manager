@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import { DnsContext } from '../../../context-api/DnsContext';
 const URL = import.meta.env.VITE_API_URI || '';
 
-function DomainCreateSingle({handleActiveMethods}) {
+function DomainCreateSingle({ handleActiveMethods }) {
   const { setNeedReload } = useContext(DnsContext);
   const [domainName, setDomainName] = useState('');
   const handleSubmit = async (event) => {
@@ -16,27 +16,27 @@ function DomainCreateSingle({handleActiveMethods}) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify([{Name : domainName}]),
+        body: JSON.stringify([{ Name: domainName }]),
       });
       console.log('resoponse after creat', response);
       if (response.ok) {
         setNeedReload(true);
         toast.success(`${domainName} created successfully`);
-        // Handle success scenario, e.g., show a success message
+        setDomainName('');
       } else {
         toast.error('Failed to creation domain');
-        console.log(domainName ,'DOMAIN NAME')
+        console.log(domainName, 'DOMAIN NAME')
       }
     } catch (error) {
       toast.error('Error occurred: ' + error);
     }
-    setDomainName('');
+
   };
 
 
   return (
     <div>
-     <form onSubmit={handleSubmit} className={styles.form}>
+      <form onSubmit={handleSubmit} className={styles.form}>
         <label htmlFor="domainName">Domain Name:</label>
         <br />
         <input
@@ -51,15 +51,15 @@ function DomainCreateSingle({handleActiveMethods}) {
         <br />
         <br />
         <div className={styles.btnContainer}>
-            <button className={styles.btn} type="submit">
+          <button className={styles.btn} type="submit">
             Create
-            </button>
-            <button className={styles.btnActive} onClick={() => handleActiveMethods('multipleDomain')}>Multiple Records</button>
+          </button>
+          <button className={styles.btnActive} onClick={() => handleActiveMethods('multipleDomain')}>Multiple Records</button>
         </div>
       </form>
-     
-     
-     </div>
+
+
+    </div>
   );
 }
 

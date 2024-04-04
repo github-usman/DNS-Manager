@@ -5,7 +5,7 @@ import { RxCross2 } from 'react-icons/rx';
 import DomainCreateMultiple from '../create-dns-records-multiple/DnsRecordsCreateMultiple';
 import DomainCreateSingle from '../create-dns-records-single/DnsCreateSingle';
 
-function DNSCreationForm({ HostedZoneId}) {
+function DNSCreationForm({ HostedZoneId }) {
     const { domainCreatePage, setDomainCreatePage } = useContext(DnsContext);
     const [active, setActive] = useState('multipleDomain');
 
@@ -23,7 +23,7 @@ function DNSCreationForm({ HostedZoneId}) {
         <div className={styles.container} style={{ display: `${domainCreatePage === true ? 'flex' : 'none'}`, }} >
             <div
                 style={{ display: 'flex', justifyContent: 'space-between', width: '100%', }} >
-                <h2>Create DNS Records in Bulk or Single.</h2>
+                <h2>Create DNS Records in Bulk or Single </h2>
                 <div className={styles['li']} onClick={handlePageCreate}>
                     {domainCreatePage ? (
                         <button className={styles.icons}> <RxCross2 /> </button>) : ('')}
@@ -35,8 +35,8 @@ function DNSCreationForm({ HostedZoneId}) {
                 <button className={styles.btn} onClick={() => handleActiveMethods('multipleDomain')}>Create Multiple Records</button>
             </div>
 
-            {active === 'singleDomain' && <DomainCreateSingle handleActiveMethods={handleActiveMethods} />}
-            {active === 'multipleDomain' && <DomainCreateMultiple handleActiveMethods={handleActiveMethods}  HostedZoneId={HostedZoneId}/>}
+            {active === 'singleDomain' && <DomainCreateSingle handleActiveMethods={handleActiveMethods} HostedZoneId={HostedZoneId} />}
+            {active === 'multipleDomain' && <DomainCreateMultiple handleActiveMethods={handleActiveMethods} HostedZoneId={HostedZoneId} />}
 
         </div>
     );

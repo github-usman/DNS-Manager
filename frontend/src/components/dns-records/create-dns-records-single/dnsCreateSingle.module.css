@@ -14,7 +14,14 @@
   width: 25rem;
 }
 .form {
-  margin-top: 2rem;
+  width: 95%;
+  /* margin-top: 2rem; */
+  display: flex;
+  flex-direction: column;
+
+  label{
+    margin-top: 1rem;
+  }
 }
 .btnActive, .btn{
   padding: 1rem 2rem;

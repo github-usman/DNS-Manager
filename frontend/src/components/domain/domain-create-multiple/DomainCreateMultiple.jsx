@@ -25,7 +25,7 @@ function DomainCreateMultiple({ handleActiveMethods }) {
             if (response.ok) {
                 setNeedReload(true);
                 toast.success(`All Domains Created successfully`);
-                // Handle success scenario, e.g., show a success message
+                setDomainName('');
             } else {
                 toast.error('Failed to creation domain');
                 console.log(newDomainName, 'DOMAIN NAME')
@@ -33,7 +33,7 @@ function DomainCreateMultiple({ handleActiveMethods }) {
         } catch (error) {
             toast.error('Error occurred: ' + error);
         }
-        setDomainName('');
+       
     };
 
 

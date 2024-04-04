@@ -12,15 +12,19 @@ const URL = import.meta.env.VITE_API_URI || '';
 
 const DNSRecords = () => {
   const [Close, setClose] = useState(true);
-  const { hostedZoneId } = useContext(DnsContext);
-  let convertHostedZoneId = hostedZoneId.slice(12);
+  const { HostedZoneId } = useContext(DnsContext);
+  // if(HostedZoneId){
+  //   const newHostedZone =  HostedZoneId.slice(12);
+  //   setHostedZoneID(newHostedZone);
+  // }
   const [dnsRecords, setDnsRecords] = useState([]);
 
   const fetchData = async () => {
     try {
+      console.log('=================NEW HOSTED ZOE', HostedZoneId, 'values');
       const { data } = await axios.get(`${URL}/dns-records/all`, {
         params: {
-          HostedZoneId: convertHostedZoneId,
+          HostedZoneId: HostedZoneId,
         },
       });
       console.log(data, '=====data');
@@ -33,9 +37,9 @@ const DNSRecords = () => {
 
   useEffect(() => {
     fetchData();
-
+    console.log('FROM DNS RECORD PAGE', HostedZoneId);
     // console.log(dnsRecords, "value ans value");
-  }, [hostedZoneId]);
+  }, [HostedZoneId]);
 
   const hamburgerToggle = () => {
     const newVal = !Close;
@@ -56,7 +60,7 @@ const DNSRecords = () => {
 
       {/* dns list  */}
       <div className={styles.bodySection} style={{ marginLeft: !Close && "0", transition: 'all 0.4s' }}>
-      <DNSCreationForm  HostedZoneId={convertHostedZoneId}/>
+        <DNSCreationForm HostedZoneId={HostedZoneId} />
         <h1 style={{ textAlign: 'center' }}>List of DNS Records </h1>
         {/* schema */}
         <div className={styles.schema}>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styles from './domainCard.module.css';
 import { toast } from 'react-hot-toast';
 
@@ -48,11 +48,23 @@ const DomainCard = ({ element, randomIndex }) => {
   ];
   const FinalIcon = listOfIcons[randomIndex] || GiSlicedMushroom;
   const color = listOfColor[randomIndex] || '#4cbbd1';
+  // HostedZoneId, setHostedZoneId
   const { setHostedZoneId, setNeedReload } = useContext(DnsContext);
 
   const handleClick = (e) => {
-    setHostedZoneId(element.Id);
+    const newHostedZone = element.Id.slice(12);
+    console.log('AFTER CLICK THE new hostedzone set is ', newHostedZone);
+    setHostedZoneId(newHostedZone);
+    sessionStorage.setItem('HostedZoneId', JSON.stringify(newHostedZone));
   };
+
+
+  useEffect(() => {
+    const storedHostedZoneId = sessionStorage.getItem('HostedZoneId');
+    if (storedHostedZoneId) {
+      setHostedZoneId(JSON.parse(storedHostedZoneId));
+    }
+  }, []);
 
   const [isDelete, setIsDelete] = useState(false);
 
