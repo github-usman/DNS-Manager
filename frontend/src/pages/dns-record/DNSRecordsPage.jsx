@@ -17,7 +17,9 @@ const DNSRecords = () => {
   //   const newHostedZone =  HostedZoneId.slice(12);
   //   setHostedZoneID(newHostedZone);
   // }
+
   const [dnsRecords, setDnsRecords] = useState([]);
+  console.log(dnsRecords, 'DNS RECORDS')
 
   const fetchData = async () => {
     try {
@@ -61,7 +63,7 @@ const DNSRecords = () => {
       {/* dns list  */}
       <div className={styles.bodySection} style={{ marginLeft: !Close && "0", transition: 'all 0.4s' }}>
         <DNSCreationForm HostedZoneId={HostedZoneId} />
-        <h1 style={{ textAlign: 'center' }}>List of DNS Records </h1>
+        <h1 style={{ textAlign: 'center' }}>List of DNS Records </h1> <button className={styles.delete}>Delete All Records</button>
         {/* schema */}
         <div className={styles.schema}>
           <p className={styles.schemaCellLeft} style={{ width: '22%' }}>

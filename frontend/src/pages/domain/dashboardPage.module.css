@@ -37,8 +37,8 @@ body {
 .domainCard {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, auto));
-  
   gap: 2rem;
+  padding-bottom: 3rem;
 }
 
 .icons {

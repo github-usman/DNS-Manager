@@ -11,7 +11,7 @@ const RecordsCard = ({ details }) => {
     <>
       <div className={styles.container}>
         <p className={styles.cell} style={{ width: '22%' }}>
-          <button>Delete</button> <button>Edit</button> {details.Name}
+          <button className={styles.btn}>Delete</button> <button className={styles.btn}>Edit</button> {details.Name}
         </p>
         <p className={styles.cell} style={{ width: '5%' }}>
           {details.Type}
